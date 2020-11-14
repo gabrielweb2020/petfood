@@ -1,0 +1,20 @@
+import GoogleMapReact from 'google-map-react';
+
+import './styles.css';
+
+import MarkerIcon from '../../assets/marker.png';
+import MarkerIconSelected from '../../assets/marker-selected.png';
+
+const Marker = () => {
+    return (
+        <div>
+            <img src={MarkerIcon} />
+            <img 
+                src="https://www.petlove.com.br/static/uploads/banner_image/image/4304/logo-petlove-push.png" 
+                class="img-marker" 
+            />
+        </div>
+    );
+};
+
+export default Marker;
