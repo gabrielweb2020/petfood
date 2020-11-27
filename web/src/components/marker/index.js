@@ -1,20 +1,22 @@
-import GoogleMapReact from 'google-map-react';
-
 import './styles.css';
-
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import MarkerIcon from '../../assets/marker.png';
 import MarkerIconSelected from '../../assets/marker-selected.png';
 
-const Marker = () => {
-    return (
-        <div>
-            <img src={MarkerIcon} />
-            <img 
-                src="https://www.petlove.com.br/static/uploads/banner_image/image/4304/logo-petlove-push.png" 
-                class="img-marker" 
-            />
-        </div>
-    );
+const Marker = ({ petshop }) => {
+  const { petshopMapSelected } = useSelector((state) => state.shop);
+
+  return (
+    <Link to={`/petshop/${petshop._id}`}>
+      <img
+        src={
+          petshopMapSelected === petshop._id ? MarkerIconSelected : MarkerIcon
+        }
+      />
+      <img src={petshop.logo} className="img-marker" />
+    </Link>
+  );
 };
 
 export default Marker;
